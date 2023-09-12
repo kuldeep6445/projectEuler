@@ -6,16 +6,18 @@ bool pall(string str){
         if(str[i]!=str[str.size()-1-i])
             return false;
     }
-    cout<<str;
     return true;
 }
 
 int main(){
-    string str;
+    int str,max=0;
     for(int i=999;i>100;i--){
-        for(int j=999;j>100;j--){
-            if(pall(to_string(i*j)))
-                return 0;
+        for(int j=i;j>100;j--){
+            str = i*j;
+            if(str>max && pall(to_string(str))){
+                max = str;
+            }
         }
     }
+    cout<<max;
 }
